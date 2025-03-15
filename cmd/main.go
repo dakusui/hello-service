@@ -2,13 +2,15 @@ package main
 
 import (
 	"fmt"
+	"hello-service/internal/handler"
+	"hello-service/internal/middleware"
 	"log"
 	"net/http"
 )
 
 func main() {
 	// Wire handler with middleware
-	greetWithMiddleware := logMiddleware(http.HandlerFunc(greetHandler))
+	greetWithMiddleware := middleware.LogMiddleware(http.HandlerFunc(handler.GreetHandler))
 
 	http.Handle("/greet", greetWithMiddleware)
 

@@ -1,11 +1,11 @@
-package main
+package handler
 
 import (
 	"fmt"
 	"net/http"
 )
 
-func greetHandler(w http.ResponseWriter, r *http.Request) {
+func GreetHandler(w http.ResponseWriter, r *http.Request) {
 	name := r.URL.Query().Get("name")
 	if name == "" {
 		name = "World"
